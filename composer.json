@@ -1,0 +1,17 @@
+{
+    "name": "appengine-ltd/ticket-picker",
+    "description": "Ticket Picker Package",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "AppengineLtd\\TicketPicker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ron Appleton",
+            "email": "ron.appleton@app-engine.dev"
+        }
+    ],
+    "require": {}
+}
