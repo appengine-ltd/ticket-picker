@@ -110,4 +110,4 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 
 ## License
 
-This project is open source and available for non-commercial use. See the [LICENSE](LICENSE) file for more details.
+This project is open source and available for non-commercial use. See the [LICENSE](LICENSE.md) file for more details.
