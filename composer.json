@@ -15,5 +15,18 @@
             "email": "hello@app-engine.dev"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "laravel/framework": "^12.2",
+        "orchestra/testbench": "^10.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AppEngine\\TicketPicker\\TicketPickerServiceProvider"
+            ]
+        }
+    }
 }
