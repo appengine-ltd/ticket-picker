@@ -1,4 +1,4 @@
-NonCommercial MIT License
+Non Commercial License
 
 Copyright (c) [2025] [App Engine Ltd]
 
