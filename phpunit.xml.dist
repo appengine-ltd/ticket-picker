@@ -15,11 +15,6 @@
       <clover outputFile="coverage.xml"/>
     </report>
   </coverage>
-  <filter>
-    <whitelist>
-      <directory suffix=".php">src</directory>
-    </whitelist>
-  </filter>
   <php>
     <ini name="error_reporting" value="-1"/>
     <ini name="display_errors" value="1"/>
