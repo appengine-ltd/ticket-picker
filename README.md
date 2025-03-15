@@ -23,7 +23,7 @@ TicketPicker is an open source PHP library used to pick winning ticket codes for
 
 ## Requirements
 
-- PHP 7.4 to PHP 8.3 (tested up to PHP 8.3; if using higher versions, you may need to bypass certain environment checks)
+- PHP 8.2 to PHP 8.4 (tested up to PHP 8.4; if using higher versions, you may need to bypass certain environment checks)
 - Composer
 
 ## Installation
