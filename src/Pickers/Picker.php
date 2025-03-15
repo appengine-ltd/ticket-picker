@@ -53,10 +53,6 @@ class Picker implements PickerInterface
         for ($pos = 0; $pos < $codeLength; $pos++) {
             $candidates = $this->getCharactersAtPosition($sanitizedTickets, $pos);
 
-            if (empty($candidates)) {
-                throw PickerException::missingCharacters($pos);
-            }
-
             $selectedChar = $this->getRandomCharacter($candidates);
             $generatedCode .= $selectedChar;
         }

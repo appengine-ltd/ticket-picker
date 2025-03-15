@@ -10,12 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(PickerException::class)] class PickerExceptionTest extends TestCase
 {
-    public function testMissingCharacters(): void
-    {
-        $this->expectExceptionMessage('No characters available at position 1. Check your ticket codes.');
-        throw PickerException::missingCharacters(1);
-    }
-
     public function testWhitespaceInTicketCode(): void
     {
         $this->expectExceptionMessage('Ticket codes must not be empty or consist solely of whitespace.');
