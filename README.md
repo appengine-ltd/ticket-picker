@@ -1,4 +1,12 @@
 # TicketPicker for DrawEngine
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=coverage)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=bugs)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=appengine-ltd_ticket-picker&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=appengine-ltd_ticket-picker)
 
 TicketPicker is an open source PHP library used to pick winning ticket codes for the DrawEngine system. It ensures fairness and transparency through deterministic code generation using a cryptographically secure seed, along with robust input validation and sanitization. Every step of the process is fully auditable, allowing anyone to verify that the draw was conducted fairly.
 
