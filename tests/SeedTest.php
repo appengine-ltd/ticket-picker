@@ -18,6 +18,8 @@ use Random\RandomException;
  */
 #[CoversClass(Seed::class)] class SeedTest extends TestCase
 {
+    private const SHOULD_BE_STRING = 'The seed should be a string.';
+
     /**
      * Test that generateSeed returns a string of default length (16).
      *
@@ -27,7 +29,7 @@ use Random\RandomException;
     {
         $seedGenerator = new Seed();
         $seed = $seedGenerator->generateSeed();
-        $this->assertIsString($seed, 'The seed should be a string.');
+        $this->assertIsString($seed, self::SHOULD_BE_STRING);
         $this->assertEquals(16, strlen($seed), 'The default seed length should be 16 characters.');
     }
 
@@ -41,7 +43,7 @@ use Random\RandomException;
         $seedGenerator = new Seed();
         $length = 10;
         $seed = $seedGenerator->generateSeed($length);
-        $this->assertIsString($seed, 'The seed should be a string.');
+        $this->assertIsString($seed, self::SHOULD_BE_STRING);
         $this->assertEquals($length, strlen($seed), 'The seed length should match the requested length.');
     }
 
@@ -54,7 +56,7 @@ use Random\RandomException;
     {
         $seedGenerator = new Seed();
         $seed = $seedGenerator->generateSeed(1);
-        $this->assertIsString($seed, 'The seed should be a string.');
+        $this->assertIsString($seed, self::SHOULD_BE_STRING);
         $this->assertEquals(1, strlen($seed), 'The seed length should be 1.');
     }
 

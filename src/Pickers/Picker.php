@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AppEngine\TicketPicker\Pickers;
 
+use AppEngine\TicketPicker\Exceptions\PickerException;
 use AppEngine\TicketPicker\Interfaces\PickerInterface;
 use Exception;
 
@@ -53,7 +54,7 @@ class Picker implements PickerInterface
             $candidates = $this->getCharactersAtPosition($sanitizedTickets, $pos);
 
             if (empty($candidates)) {
-                throw new Exception("No characters available at position $pos. Check your ticket codes.");
+                throw PickerException::missingCharacters($pos);
             }
 
             $selectedChar = $this->getRandomCharacter($candidates);
@@ -126,13 +127,13 @@ class Picker implements PickerInterface
     {
         foreach ($ticketCodes as $ticket) {
             if ($ticket === '') {
-                throw new Exception('Ticket codes must not be empty or consist solely of whitespace.');
+                throw PickerException::whitespaceInTicketCode();
             }
         }
 
         $lengths = array_map('strlen', $ticketCodes);
         if (count(array_unique($lengths)) > 1) {
-            throw new Exception('Ticket codes must all be the same length after removing whitespace.');
+            throw PickerException::invalidLTicketCodeLength();
         }
     }
 
@@ -150,7 +151,7 @@ class Picker implements PickerInterface
     protected function getCodeLength(array $ticketCodes): int
     {
         if (empty($ticketCodes)) {
-            throw new Exception('No ticket codes provided.');
+            throw PickerException::missingTicketCode();
         }
         return strlen($ticketCodes[0]);
     }

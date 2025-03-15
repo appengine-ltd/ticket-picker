@@ -11,12 +11,6 @@ use PHPUnit\Framework\TestCase;
 use ReflectionException;
 use ReflectionMethod;
 
-/**
- * Class PickerTest
- *
- * This class contains tests for the Picker class.
- *
- */
 #[CoversClass(Picker::class)] class PickerTest extends TestCase
 {
     /**
@@ -109,7 +103,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'convertSeedToInteger');
-        $method->setAccessible(true);
         $seedInt = $method->invoke($picker, 'myseed');
         $this->assertIsInt($seedInt, 'convertSeedToInteger() should return an integer.');
     }
@@ -123,7 +116,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'getRandomCharacter');
-        $method->setAccessible(true);
         $candidates = ['A', 'B', 'C'];
         $char = $method->invoke($picker, $candidates);
         $this->assertContains($char, $candidates, 'getRandomCharacter() should return one of the candidates.');
@@ -138,7 +130,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'getCharactersAtPosition');
-        $method->setAccessible(true);
         $ticketCodes = ['ABC', 'DEF', 'GHI'];
         // For position 1, expect: "B", "E", "H"
         $result = $method->invoke($picker, $ticketCodes, 1);
@@ -159,7 +150,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'getCodeLength');
-        $method->setAccessible(true);
         $ticketCodes = ['ABC', 'DEF'];
         $length = $method->invoke($picker, $ticketCodes);
         $this->assertEquals(3, $length, 'getCodeLength() should return the length of the first ticket code.');
@@ -174,7 +164,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'sanitizeTicketCodes');
-        $method->setAccessible(true);
         $ticketCodes = [' A B ', 'C   D', 'E F G'];
         $sanitized = $method->invoke($picker, $ticketCodes);
         $expected = ['AB', 'CD', 'EFG'];
@@ -194,7 +183,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'validateTicketCodes');
-        $method->setAccessible(true);
         $ticketCodes = ['ABC', 'DEF'];
         // Should not throw an exception.
         $method->invoke($picker, $ticketCodes);
@@ -210,7 +198,6 @@ use ReflectionMethod;
     {
         $picker = new Picker();
         $method = new ReflectionMethod($picker, 'validateTicketCodes');
-        $method->setAccessible(true);
         $ticketCodes = ['ABC', 'DE'];
         $this->expectException(Exception::class);
         $method->invoke($picker, $ticketCodes);
