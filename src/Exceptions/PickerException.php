@@ -16,7 +16,7 @@ class PickerException extends \RuntimeException
         return new self('Ticket codes must not be empty or consist solely of whitespace.');
     }
 
-    public static function invalidLTicketCodeLength(): self
+    public static function invalidTicketCodeLength(): self
     {
         return new self('Ticket codes must all be the same length after removing whitespace.');
     }

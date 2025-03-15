@@ -133,7 +133,7 @@ class Picker implements PickerInterface
 
         $lengths = array_map('strlen', $ticketCodes);
         if (count(array_unique($lengths)) > 1) {
-            throw PickerException::invalidLTicketCodeLength();
+            throw PickerException::invalidTicketCodeLength();
         }
     }
 
