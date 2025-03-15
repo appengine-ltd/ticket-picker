@@ -23,7 +23,7 @@
         </include>
     </source>
     <coverage
-            includeUncoveredFiles="true"
+            includeUncoveredFiles="false"
             pathCoverage="false"
             ignoreDeprecatedCodeUnits="true"
             disableCodeCoverageIgnore="true"
