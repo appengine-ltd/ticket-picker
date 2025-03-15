@@ -205,4 +205,23 @@ class PickerTest extends TestCase
         $this->expectException(Exception::class);
         $method->invoke($picker, $ticketCodes);
     }
+
+    /**
+     * Test validateTicketCodes with invalid input (empty ticket code) throws an exception.
+     *
+     * @throws ReflectionException
+     * @throws Exception
+     */
+    public function throwsExceptionWhenNoCharactersAvailableAtPosition(): void
+    {
+        $picker = new Picker();
+        $ticketCodes = [
+            'A',
+            'B',
+            'C',
+        ];
+        $this->expectException(PickerException::class);
+        $this->expectExceptionMessage('No characters available at position 1. Check your ticket codes.');
+        $picker->generateCode($ticketCodes, 'seed');
+    }
 }
