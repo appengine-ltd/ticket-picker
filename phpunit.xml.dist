@@ -29,7 +29,7 @@
             disableCodeCoverageIgnore="true"
     >
         <report>
-            <clover outputFile="clover.xml"/>
+            <clover outputFile="coverage.xml"/>
         </report>
     </coverage>
 </phpunit>
