@@ -6,11 +6,18 @@ namespace AppEngine\TicketPicker\Tests;
 
 use AppEngine\TicketPicker\Pickers\Picker;
 use Exception;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use ReflectionException;
 use ReflectionMethod;
 
-class PickerTest extends TestCase
+/**
+ * Class PickerTest
+ *
+ * This class contains tests for the Picker class.
+ *
+ */
+#[CoversClass(Picker::class)] class PickerTest extends TestCase
 {
     /**
      * Test that generateCode produces a reproducible code when using the same seed.

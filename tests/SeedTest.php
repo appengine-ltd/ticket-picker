@@ -6,10 +6,17 @@ namespace AppEngine\TicketPicker\Tests;
 
 use AppEngine\TicketPicker\Generators\Seed;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Random\RandomException;
 
-class SeedTest extends TestCase
+/**
+ * Class SeedTest
+ *
+ * This class contains tests for the Seed class.
+ *
+ */
+#[CoversClass(Seed::class)] class SeedTest extends TestCase
 {
     /**
      * Test that generateSeed returns a string of default length (16).
