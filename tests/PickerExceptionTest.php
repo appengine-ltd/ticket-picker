@@ -8,7 +8,7 @@ use AppEngine\TicketPicker\Exceptions\PickerException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(\AppEngine\TicketPicker\Exceptions\PickerException::class)] class PickerExceptionTest extends TestCase
+#[CoversClass(PickerException::class)] class PickerExceptionTest extends TestCase
 {
     public function testMissingCharacters(): void
     {
