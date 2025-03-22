@@ -18,13 +18,6 @@
   "require": {
     "php": ">=8.2 <8.5"
   },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "AppEngine\\TicketPicker\\TicketPickerServiceProvider"
-      ]
-    }
-  },
   "require-dev": {
     "phpunit/phpunit": "^11.5",
     "phpstan/phpstan": "^2.0",
