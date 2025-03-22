@@ -2,7 +2,7 @@
   "name": "appengine-ltd/ticket-picker",
   "description": "Ticket Picker Package",
   "type": "library",
-  "license": "Non Commercial",
+  "license": "proprietary",
   "autoload": {
     "psr-4": {
       "AppEngine\\TicketPicker\\": "src/",
