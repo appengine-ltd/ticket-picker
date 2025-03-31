@@ -50,12 +50,23 @@ class Picker implements PickerInterface
         $generatedCode = '';
 
         // For each character position, pick a random character from the unique candidates.
-        for ($pos = 0; $pos < $codeLength; $pos++) {
-            $candidates = $this->getCharactersAtPosition($sanitizedTickets, $pos);
+        do {
+            $pool = array_filter(
+                $sanitizedTickets,
+                static fn (string $code) => str_starts_with($code, $generatedCode),
+            );
 
+            if (count($pool) === 1) {
+                $generatedCode = $pool[0];
+
+                break;
+            }
+
+            $candidates = $this->getCharactersAtPosition($pool, strlen($generatedCode));
             $selectedChar = $this->getRandomCharacter($candidates);
+
             $generatedCode .= $selectedChar;
-        }
+        } while (strlen($generatedCode) < $codeLength);
 
         return $generatedCode;
     }
