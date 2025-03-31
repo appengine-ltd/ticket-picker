@@ -37,6 +37,22 @@ class PickerTest extends TestCase
         $this->assertSame($code1, $code2, 'The generated code should be reproducible with the same seed.');
     }
 
+    public function testGeneratedCodePicksCorrectlyNearLimit(): void
+    {
+        $picker = new Picker();
+        $seed = 'random';
+
+        $pool = [
+            'ABCDEF',
+            'ABCDEG',
+            'ABCDEH',
+        ];
+
+        $code = $picker->generateCode($pool, $seed);
+
+        $this->assertEquals('ABCDEH', $code);
+    }
+
     /**
      * Test that generateCode correctly sanitizes ticket codes (removes whitespace).
      *
