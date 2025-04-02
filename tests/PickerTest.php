@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace AppEngine\TicketPicker\Tests;
 
 use AppEngine\TicketPicker\Exceptions\PickerException;
-use AppEngine\TicketPicker\Generators\Seed;
 use AppEngine\TicketPicker\Pickers\Picker;
 use Exception;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -61,7 +60,7 @@ class PickerTest extends TestCase
     public function testOnlyOneCodePicksTheFirstCode(): void
     {
         $picker = new Picker();
-        $seed = (new Seed())->generateSeed();
+        $seed = 'test-seed';
 
         $pool = [
             'ABCDEF',
