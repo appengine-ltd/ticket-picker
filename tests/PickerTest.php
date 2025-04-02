@@ -9,6 +9,7 @@ use AppEngine\TicketPicker\Pickers\Picker;
 use Exception;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Random\RandomException;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -51,6 +52,48 @@ class PickerTest extends TestCase
         $code = $picker->generateCode($pool, $seed);
 
         $this->assertEquals('ABCDEH', $code);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testGeneratedCodePicksCorrectlyWhenDifferentTicketsInPool(): void
+    {
+        $picker = $this->getMockBuilder(Picker::class)
+            ->onlyMethods(['getCharactersAtPosition'])
+            ->getMock();
+
+        $seed = 'random';
+        $pool = [
+            'ABCDEF',
+            'GHIJKL',
+            'MNOPQR',
+        ];
+
+        $picker->expects($this->once())
+            ->method('getCharactersAtPosition')
+            ->willReturn(['A', 'G', 'M']);
+
+        $code = $picker->generateCode($pool, $seed);
+
+        $this->assertEquals('GHIJKL', $code);
+    }
+
+    /**
+     * @throws RandomException
+     */
+    public function testOnlyOneCodePicksTheFirstCode(): void
+    {
+        $picker = new Picker();
+        $seed = 'test-seed';
+
+        $pool = [
+            'ABCDEF',
+        ];
+
+        $code = $picker->generateCode($pool, $seed);
+
+        $this->assertEquals('ABCDEF', $code);
     }
 
     /**

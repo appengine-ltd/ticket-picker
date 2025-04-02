@@ -51,9 +51,11 @@ class Picker implements PickerInterface
 
         // For each character position, pick a random character from the unique candidates.
         do {
-            $pool = array_filter(
-                $sanitizedTickets,
-                static fn (string $code) => str_starts_with($code, $generatedCode),
+            $pool = array_values(
+                array_filter(
+                    $sanitizedTickets,
+                    static fn (string $code) => str_starts_with($code, $generatedCode),
+                ),
             );
 
             if (count($pool) === 1) {
