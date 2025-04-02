@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace AppEngine\TicketPicker\Tests;
 
 use AppEngine\TicketPicker\Exceptions\PickerException;
+use AppEngine\TicketPicker\Generators\Seed;
 use AppEngine\TicketPicker\Pickers\Picker;
 use Exception;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Random\RandomException;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -51,6 +53,23 @@ class PickerTest extends TestCase
         $code = $picker->generateCode($pool, $seed);
 
         $this->assertEquals('ABCDEH', $code);
+    }
+
+    /**
+     * @throws RandomException
+     */
+    public function testOnlyOneCodePicksTheFirstCode(): void
+    {
+        $picker = new Picker();
+        $seed = (new Seed())->generateSeed();
+
+        $pool = [
+            'ABCDEF',
+        ];
+
+        $code = $picker->generateCode($pool, $seed);
+
+        $this->assertEquals('ABCDEF', $code);
     }
 
     /**
