@@ -5,7 +5,11 @@
   "license": "proprietary",
   "autoload": {
     "psr-4": {
-      "AppEngine\\TicketPicker\\": "src/",
+      "AppEngine\\TicketPicker\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "AppEngine\\TicketPicker\\Tests\\": "tests/"
     }
   },
