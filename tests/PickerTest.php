@@ -55,6 +55,31 @@ class PickerTest extends TestCase
     }
 
     /**
+     * @throws Exception
+     */
+    public function testGeneratedCodePicksCorrectlyWhenDifferentTicketsInPool(): void
+    {
+        $picker = $this->getMockBuilder(Picker::class)
+            ->onlyMethods(['getCharactersAtPosition'])
+            ->getMock();
+
+        $seed = 'random';
+        $pool = [
+            'ABCDEF',
+            'GHIJKL',
+            'MNOPQR',
+        ];
+
+        $picker->expects($this->once())
+            ->method('getCharactersAtPosition')
+            ->willReturn(['A', 'G', 'M']);
+
+        $code = $picker->generateCode($pool, $seed);
+
+        $this->assertEquals('GHIJKL', $code);
+    }
+
+    /**
      * @throws RandomException
      */
     public function testOnlyOneCodePicksTheFirstCode(): void
